@@ -1,27 +1,25 @@
 {
   "files": {
-    "main.css": "/static/css/main.a85745d8.chunk.css",
-    "main.js": "/static/js/main.51c229ac.chunk.js",
-    "main.js.map": "/static/js/main.51c229ac.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.d4c9f1cb.js",
-    "runtime-main.js.map": "/static/js/runtime-main.d4c9f1cb.js.map",
-    "static/js/2.948fc56a.chunk.js": "/static/js/2.948fc56a.chunk.js",
-    "static/js/2.948fc56a.chunk.js.map": "/static/js/2.948fc56a.chunk.js.map",
+    "main.css": "/static/css/main.5e3bd2b6.chunk.css",
+    "main.js": "/static/js/main.100e0551.chunk.js",
+    "main.js.map": "/static/js/main.100e0551.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.e18546a0.js",
+    "runtime-main.js.map": "/static/js/runtime-main.e18546a0.js.map",
+    "static/js/2.1b55ee37.chunk.js": "/static/js/2.1b55ee37.chunk.js",
+    "static/js/2.1b55ee37.chunk.js.map": "/static/js/2.1b55ee37.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.a85745d8.chunk.css.map": "/static/css/main.a85745d8.chunk.css.map",
-    "static/js/2.948fc56a.chunk.js.LICENSE.txt": "/static/js/2.948fc56a.chunk.js.LICENSE.txt",
-    "static/media/github-octocat.8c284667.svg": "/static/media/github-octocat.8c284667.svg",
-    "static/media/google-gmail.178c2ca4.svg": "/static/media/google-gmail.178c2ca4.svg",
-    "static/media/instagram-icon.5cc82e99.svg": "/static/media/instagram-icon.5cc82e99.svg",
+    "static/css/main.5e3bd2b6.chunk.css.map": "/static/css/main.5e3bd2b6.chunk.css.map",
+    "static/js/2.1b55ee37.chunk.js.LICENSE.txt": "/static/js/2.1b55ee37.chunk.js.LICENSE.txt",
     "static/media/left_arrow.170ad3d9.svg": "/static/media/left_arrow.170ad3d9.svg",
-    "static/media/linkedin-icon.24848af0.svg": "/static/media/linkedin-icon.24848af0.svg",
+    "static/media/more-horiz.989c6250.svg": "/static/media/more-horiz.989c6250.svg",
+    "static/media/more-vert.2a808fc2.svg": "/static/media/more-vert.2a808fc2.svg",
     "static/media/right_arrow.ac8f1078.svg": "/static/media/right_arrow.ac8f1078.svg",
-    "static/media/twitter.934b851e.svg": "/static/media/twitter.934b851e.svg"
+    "static/media/user.c9b16629.svg": "/static/media/user.c9b16629.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.d4c9f1cb.js",
-    "static/js/2.948fc56a.chunk.js",
-    "static/css/main.a85745d8.chunk.css",
-    "static/js/main.51c229ac.chunk.js"
+    "static/js/runtime-main.e18546a0.js",
+    "static/js/2.1b55ee37.chunk.js",
+    "static/css/main.5e3bd2b6.chunk.css",
+    "static/js/main.100e0551.chunk.js"
   ]
 }
