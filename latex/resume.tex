@@ -1,0 +1,94 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{setspace}
+\usepackage{lmodern}
+\usepackage{lipsum}
+\usepackage{textcomp}
+\usepackage{lastpage}
+\usepackage{geometry}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{enumitem}
+\usepackage{fontawesome5}
+\usepackage[
+    pdftitle={Ommar Shaikh's - Resume},
+    pdfauthor={Ommar Shaikh},
+    pdfcreator={LaTeX},
+    colorlinks=true,
+    urlcolor=primaryColor
+]{hyperref}
+\usepackage[pscoord]{eso-pic}
+\usepackage{calc}
+\usepackage{ifthen}
+\usepackage{needspace}
+\usepackage{charter}
+\usepackage[document]{ragged2e}
+\usepackage{forarray}
+\usepackage{pgffor}
+
+% Configuration --------------------------------------------------------------------------------------------------------
+\geometry{ignoreheadfoot=True,showframe=False,top=0.7 cm,bottom=1.5 cm,left=1 cm,right=1 cm,footskip=0 cm}
+\raggedright
+\AtBeginEnvironment{adjustwidth}{\partopsep0pt}
+\pagestyle{empty}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\topskip}{0pt}
+\setlength{\columnsep}{0.15cm}
+\pagenumbering{gobble}
+\input{glyphtounicode}
+\pdfgentounicode=1
+\definecolor{primaryColor}{RGB}{0, 0, 0}
+\definecolor{grey}{RGB}{225, 225, 225}
+\titleformat{\section}{\vspace{-4pt}\scshape\raggedright\Large\bfseries}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Define Static Information --------------------------------------------------------------------------------------------
+\newcommand{\firstname}{Ommar}
+\newcommand{\lastname}{Shaikh}
+\newcommand{\email}{ommarshaikh20@gmail.com}
+\newcommand{\linkedin}{https://www.linkedin.com/in/ommar-shaikh-02b3a1207/}
+\newcommand{\github}{https://github.com/OmmarShaikh01}
+\newcommand{\website}{https://ommarshaikh01.github.io/}
+\newcommand{\jasphone}{+91 932-487-1009}
+\newcommand{\location}{Mumbai, IN (Remote / EST Timezone)}
+\newcommand{\resumeoverview}{Senior AI \& Automation Engineer with 4+ years of experience building scalable, production-grade MLOps and cloud infrastructure. Specialized in Agentic AI workflows (LangChain, CrewAI) and high-availability identity automation supporting 48,000+ objects. Expert in reducing operational latency by 85\% and ensuring DevSecOps compliance for enterprise-level deployments.}
+
+% Document -------------------------------------------------------------------------------------------------------------
+\begin{document}
+    \AddToShipoutPicture*{%
+        \color{grey}
+        \AtPageUpperLeft{\rule[-3cm]{\paperwidth}{5cm}}
+    }
+    \begin{center}
+        {\Huge \scshape \textbf{\firstname \ \lastname}} \\ \vspace{1pt}
+        \vspace{2pt}
+        \raisebox{-0.1\height}\ \textbullet \ \textbf{\jasphone} ~
+        \raisebox{-0.1\height}\ \textbullet \ \location
+        \vspace{2pt} \\
+        \href{mailto:\email}{\raisebox{-0.2\height}\textbullet \ \email} ~
+        \href{\linkedin}{\raisebox{-0.2\height}\textbullet \ LinkedIn} ~
+        \href{\website}{\raisebox{-0.2\height}\textbullet \ Website} ~
+        \href{\github}{\raisebox{-0.2\height}\textbullet \ Github} \\
+        \vspace{8pt}
+    \end{center}
+
+    % Section - overview ---------------------------------------------------------------------------------------------------
+    \section{overview}\label{sec:overview}
+    \begin{center}
+        \sloppy \justifying 
+        \qquad \resumeoverview
+        \vspace{-10pt}
+    \end{center}
+    
+    % Sections ---------------------------------------------------------------------------------------------------
+    \input{_skills}
+    \input{_experience}    
+    \input{_projects}
+    % \input{_certifications}
+    \input{_education} 
+
+    \input{_ats_opt}
+\end{document}
