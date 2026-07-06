@@ -3,9 +3,9 @@ import { useActiveSection } from "../hooks/useActiveSection";
 
 const NAV_ITEMS = [
   { href: "#about", label: "About" },
-  { href: "#skills", label: "Skills" },
   { href: "#experience", label: "Experience" },
   { href: "#projects", label: "Projects" },
+  { href: "#skills", label: "Skills" },
   { href: "#education", label: "Education" },
   { href: "#contact", label: "Contact" },
 ];
@@ -19,7 +19,7 @@ export default function Navbar() {
 
   useEffect(() => {
     function onScroll() {
-      setScrolled(window.scrollY > 60);
+      setScrolled(window.scrollY > 0);
     }
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
@@ -31,24 +31,22 @@ export default function Navbar() {
   return (
     <nav
       id="navbar"
-      className={`fixed top-0 left-0 w-full z-[1000] transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] ${
-        scrolled
-          ? "bg-[rgba(10,10,15,0.85)] backdrop-blur-[16px] shadow-[0_1px_0_var(--color-border-subtle)] py-3"
-          : "py-[18px]"
+      className={`fixed top-0 left-0 w-full z-[1000] transition-colors duration-150 h-[48px] border-b border-border-subtle ${
+        scrolled ? "bg-bg-secondary" : "bg-bg-primary"
       }`}
     >
-      <div className="max-w-[1100px] mx-auto px-6 flex items-center justify-between">
+      <div className="w-full h-full px-4 flex items-center justify-between">
         {/* Logo */}
         <a
           href="#"
-          className="font-heading font-extrabold text-[1.4rem] text-text-primary tracking-[-0.5px] no-underline hover:text-text-primary"
+          className="font-heading font-medium text-[0.875rem] text-text-primary no-underline hover:text-accent transition-colors"
         >
-          O<span className="gradient-text">.</span>Shaikh
+          Ommar Shaikh
         </a>
 
         {/* Nav links */}
         <div
-          className={`flex gap-8 max-md:fixed max-md:top-0 max-md:w-[280px] max-md:h-screen max-md:flex-col max-md:bg-[rgba(10,10,15,0.97)] max-md:backdrop-blur-[20px] max-md:pt-20 max-md:px-8 max-md:pb-8 max-md:gap-6 max-md:border-l max-md:border-border-subtle max-md:transition-[right] max-md:duration-300 max-md:ease-[cubic-bezier(0.4,0,0.2,1)] ${
+          className={`flex gap-4 max-md:fixed max-md:top-[48px] max-md:w-full max-md:h-[calc(100vh-48px)] max-md:flex-col max-md:bg-bg-secondary max-md:pt-4 max-md:px-4 max-md:pb-10 max-md:gap-0 max-md:border-l max-md:border-border-subtle max-md:transition-[right] max-md:duration-150 max-md:ease-out ${
             menuOpen ? "max-md:right-0" : "max-md:right-[-100%]"
           }`}
         >
@@ -57,10 +55,10 @@ export default function Navbar() {
               key={href}
               href={href}
               onClick={closeMenu}
-              className={`text-[0.88rem] font-medium relative pb-1 no-underline transition-colors duration-300 after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:rounded-sm after:transition-[width] after:duration-300 after:gradient-accent hover:text-text-primary hover:after:w-full ${
+              className={`text-[0.875rem] font-normal px-4 py-2 no-underline transition-colors duration-150 max-md:border-b max-md:border-border-subtle ${
                 activeId === href.slice(1)
-                  ? "text-accent after:w-full"
-                  : "text-text-secondary after:w-0"
+                  ? "text-text-primary bg-bg-card max-md:bg-bg-card max-md:border-l-[3px] max-md:border-l-accent max-md:pl-[13px]"
+                  : "text-text-secondary hover:text-text-primary hover:bg-bg-card max-md:border-l-[3px] max-md:border-l-transparent max-md:pl-[13px]"
               }`}
             >
               {label}
@@ -72,21 +70,16 @@ export default function Navbar() {
         <button
           onClick={() => setMenuOpen((o) => !o)}
           aria-label="Toggle navigation"
-          className="hidden max-md:flex flex-col gap-[5px] cursor-pointer bg-transparent border-none p-1"
+          className="hidden max-md:flex flex-col justify-center gap-[4px] cursor-pointer bg-transparent border-none w-[32px] h-[32px] hover:bg-bg-card transition-colors duration-150"
         >
           <span
-            className={`block w-6 h-0.5 bg-text-primary rounded-sm transition-transform duration-300 ${
-              menuOpen ? "translate-y-[7px] rotate-45" : ""
+            className={`block w-[16px] h-[1px] bg-text-primary mx-auto transition-transform duration-150 ${
+              menuOpen ? "-rotate-45 translate-y-[2px]" : ""
             }`}
           />
           <span
-            className={`block w-6 h-0.5 bg-text-primary rounded-sm transition-opacity duration-300 ${
-              menuOpen ? "opacity-0" : ""
-            }`}
-          />
-          <span
-            className={`block w-6 h-0.5 bg-text-primary rounded-sm transition-transform duration-300 ${
-              menuOpen ? "-translate-y-[7px] -rotate-45" : ""
+            className={`block w-[16px] h-[1px] bg-text-primary mx-auto transition-transform duration-150 ${
+              menuOpen ? "rotate-45 -translate-y-[3px]" : ""
             }`}
           />
         </button>

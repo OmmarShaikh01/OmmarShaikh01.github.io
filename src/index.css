@@ -1,60 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
 /* ============================================================
-   Custom Theme — Design Tokens
+   Custom Theme — IBM Carbon Gray 100 Theme
    ============================================================ */
 @theme {
   /* Backgrounds */
-  --color-bg-primary: #0a0a0f;
-  --color-bg-secondary: #12121a;
-  --color-bg-card: rgba(255, 255, 255, 0.04);
-  --color-bg-card-hover: rgba(255, 255, 255, 0.07);
+  --color-bg-primary: #161616; /* background */
+  --color-bg-secondary: #262626; /* layer-01 */
+  --color-bg-card: #393939; /* layer-02 */
+  --color-bg-card-hover: #4d4d4d; /* layer-hover-02 */
 
   /* Accent */
-  --color-accent: #00d4ff;
-  --color-accent-alt: #7b61ff;
-  --color-accent-glow: rgba(0, 212, 255, 0.25);
+  --color-accent: #0f62fe; /* button-primary */
+  --color-accent-hover: #0353e9; /* button-primary-hover */
 
   /* Text */
-  --color-text-primary: #f0f0f5;
-  --color-text-secondary: #a0a0b8;
-  --color-text-muted: #6b6b80;
+  --color-text-primary: #f4f4f4; /* text-primary */
+  --color-text-secondary: #c6c6c6; /* text-secondary */
+  --color-text-muted: #8d8d8d; /* text-helper */
+  --color-text-inverse: #ffffff;
 
   /* Borders */
-  --color-border-subtle: rgba(255, 255, 255, 0.08);
-  --color-border-accent: rgba(0, 212, 255, 0.3);
+  --color-border-subtle: #393939; /* border-subtle-01 */
+  --color-border-strong: #525252; /* border-strong-01 */
+  --color-border-accent: #0f62fe; /* focus */
 
   /* Typography */
-  --font-heading: "Outfit", sans-serif;
-  --font-body: "Inter", sans-serif;
+  --font-heading: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-body: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 
-  /* Radius */
-  --radius-card: 16px;
-  --radius-sm: 10px;
+  /* Radius (Carbon is sharp) */
+  --radius-card: 0px;
+  --radius-sm: 0px;
 
-  /* Shadows */
-  --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.4);
-  --shadow-glow: 0 0 40px rgba(0, 212, 255, 0.12);
-
-  /* Animations */
-  --animate-float-orb: float-orb 12s ease-in-out infinite alternate;
-  --animate-float-orb-reverse: float-orb 14s ease-in-out infinite alternate-reverse;
-  --animate-blink: blink 0.8s step-end infinite;
-}
-
-@keyframes float-orb {
-  0% {
-    transform: translate(0, 0) scale(1);
-  }
-  100% {
-    transform: translate(40px, -40px) scale(1.15);
-  }
-}
-
-@keyframes blink {
-  50% {
-    opacity: 0;
-  }
+  /* Shadows (Carbon avoids shadows, relying on borders and contrast) */
+  --shadow-card: none;
+  --shadow-card-hover: none;
+  --shadow-accent: none;
+  --shadow-accent-hover: none;
 }
 
 /* ============================================================
@@ -70,8 +54,14 @@ body {
   font-family: var(--font-body);
   background: var(--color-bg-primary);
   color: var(--color-text-primary);
-  line-height: 1.7;
+  line-height: 1.5;
   overflow-x: hidden;
+  letter-spacing: 0.16px;
+}
+
+* {
+  border-radius: 0 !important;
+  box-shadow: none !important;
 }
 
 /* ============================================================
@@ -79,38 +69,33 @@ body {
    ============================================================ */
 .reveal {
   opacity: 0;
-  transform: translateY(36px);
-  transition:
-    opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
-    transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 0.4s cubic-bezier(0.2, 0, 0.38, 0.9);
 }
 .reveal.visible {
   opacity: 1;
-  transform: translateY(0);
 }
 
 /* ============================================================
-   Gradient accent utility
+   Accent utilities
    ============================================================ */
-.gradient-accent {
-  background: linear-gradient(135deg, #00d4ff 0%, #7b61ff 100%);
+.bg-accent-solid {
+  background: var(--color-accent);
 }
 
-.gradient-text {
-  background: linear-gradient(135deg, #00d4ff 0%, #7b61ff 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+.text-accent-solid {
+  color: var(--color-accent);
 }
 
 /* Scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 ::-webkit-scrollbar-track {
   background: var(--color-bg-primary);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--color-border-subtle);
-  border-radius: 3px;
+  background: var(--color-border-strong);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted);
 }

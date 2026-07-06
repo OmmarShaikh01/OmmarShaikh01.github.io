@@ -2,15 +2,26 @@ import { useScrollReveal } from "../hooks/useScrollReveal";
 
 const ROLES = [
   {
-    title: "Senior Automation & AI Engineer",
+    title: "Software Engineer",
+    date: "Feb 2026 — Present",
+    company: "Enforcer-CCA · Mumbai, IN (Remote)",
+    points: [
+      "Building Enforcer-CCA, an autonomous cloud governance platform focused on continuous compliance and automated remediation across AWS and Kubernetes.",
+      "Developing API services, RBAC structures, and audit logging to align with SOC 2 and ISO 27001 compliance frameworks.",
+      "Integrating native workflows with tools like Datadog, GitHub, Terraform, and Slack to enhance infrastructure visibility.",
+      "Managing cloud infrastructure and deployment automation to support production operations.",
+    ],
+  },
+  {
+    title: "Automation & AI Engineer",
     date: "May 2023 — Feb 2026",
     company: "BAARTechnology · Mumbai, IN (Remote)",
     points: [
-      "Architected an Enterprise ULM system for 5,000+ users, reducing manual onboarding latency by 85% through automated AD and Exchange workflows.",
-      "Engineered fault-tolerant MLOps and automation pipelines using Prefect and Docker, maintaining 99.9% uptime.",
-      "Developed an Intermediate Domain Controller (IDC) as a validation layer, enabling zero-downtime rollbacks and version-controlled infrastructure.",
-      "Optimized security compliance by integrating RBAC and JIT provisioning, ensuring 100% alignment with audit requirements.",
-      "Streamlined ITSM workflows by integrating ServiceNow APIs with PowerShell, cutting ticket resolution time from days to minutes.",
+      "Designed an Enterprise User Lifecycle Management system, streamlining onboarding through automated AD and Exchange workflows.",
+      "Built resilient MLOps and automation pipelines using Prefect and Docker, ensuring high availability and fault tolerance.",
+      "Developed an Intermediate Domain Controller as a validation layer for version-controlled infrastructure updates.",
+      "Aligned systems with security audit requirements by integrating role-based access control and JIT provisioning.",
+      "Integrated ServiceNow APIs with PowerShell to accelerate ITSM ticket resolution workflows.",
     ],
   },
   {
@@ -18,23 +29,18 @@ const ROLES = [
     date: "Jan 2023 — May 2023",
     company: "PortfolioBuddy · Mumbai, IN",
     points: [
-      "Developed a robust backend architecture using Django, enhancing platform flexibility and scalability.",
-      "Optimized data storage and retrieval with MongoDB, ensuring high performance and reliability.",
-      "Integrated Keycloak for secure authentication and authorization, safeguarding user data.",
-      "Implemented Docker and Docker Compose for seamless deployment and scalability across environments.",
-      "Established real-time monitoring with Grafana and Prometheus, ensuring minimal downtime.",
+      "Developed a reliable backend architecture using Django to support platform flexibility.",
+      "Configured data storage and retrieval processes with MongoDB for consistent performance.",
+      "Integrated Keycloak for authentication and authorization to safeguard user data.",
+      "Utilized Docker and Docker Compose for streamlined deployment across environments.",
+      "Implemented monitoring with Grafana and Prometheus for operational visibility.",
     ],
   },
   {
     title: "Backend Developer",
     date: "Oct 2021 — Dec 2022",
     company: "Freelance · Mumbai, IN",
-    points: [
-      "Integrated Discord API for real-time communication and effective user management within a Discord community.",
-      "Automated tasks and provided real-time responses through bots, streamlining community interactions.",
-      "Implemented efficient MongoDB schemas to manage large volumes of user data seamlessly.",
-      "Built innovative social network bots to facilitate interactions and improve user engagement.",
-    ],
+    points: [],
   },
 ];
 
@@ -42,48 +48,45 @@ export default function Experience() {
   const ref = useScrollReveal<HTMLElement>();
 
   return (
-    <section id="experience" className="py-[100px]" ref={ref}>
-      <div className="max-w-[1100px] mx-auto px-6">
-        <div className="reveal">
-          <span className="inline-flex items-center gap-2 font-body text-[0.8rem] font-semibold tracking-[3px] uppercase text-accent mb-3 before:inline-block before:w-6 before:h-0.5 before:gradient-accent before:rounded-sm">
-            Career
-          </span>
-          <h2 className="font-heading text-[clamp(2rem,4vw,2.8rem)] font-bold text-text-primary mb-12">
+    <section id="experience" className="py-24 bg-bg-primary" ref={ref}>
+      <div className="max-w-[1056px] mx-auto px-4">
+        <div className="reveal mb-12">
+          <h2 className="font-heading text-[2rem] font-light text-text-primary">
             Work Experience
           </h2>
         </div>
 
-        {/* Timeline */}
-        <div className="relative pl-10 before:content-[''] before:absolute before:left-[8px] before:top-0 before:bottom-0 before:w-0.5 before:bg-gradient-to-b before:from-accent before:via-accent-alt before:to-transparent before:rounded-sm max-md:pl-7">
+        <div className="border-l border-border-strong pl-[1px]">
           {ROLES.map(({ title, date, company, points }, i) => (
-            <div key={i} className="reveal relative mb-12 last:mb-0 group">
-              {/* Dot */}
-              <div className="absolute left-[-40px] top-[6px] w-[18px] h-[18px] rounded-full bg-bg-primary border-[3px] border-accent z-10 group-hover:shadow-[0_0_16px_var(--color-accent-glow)] transition-shadow duration-300 max-md:left-[-28px] max-md:w-3.5 max-md:h-3.5" />
-
-              {/* Card */}
-              <div className="bg-bg-card border border-border-subtle rounded-[var(--radius-card)] p-8 hover:bg-bg-card-hover hover:border-border-accent hover:translate-x-2 transition-all duration-300 max-md:p-6">
-                <div className="flex justify-between items-start flex-wrap gap-2 mb-2">
-                  <span className="font-heading text-[1.2rem] font-semibold text-text-primary">
+            <div key={i} className="reveal relative mb-8 last:mb-0 group bg-bg-secondary p-6 hover:bg-bg-card transition-colors duration-150">
+              <div className="absolute left-[-2px] top-0 bottom-0 w-[3px] bg-accent opacity-0 group-hover:opacity-100 transition-opacity" />
+              
+              <div className="flex justify-between items-start flex-wrap gap-4 mb-4">
+                <div>
+                  <h3 className="font-heading text-[1.25rem] font-normal text-text-primary mb-1">
                     {title}
-                  </span>
-                  <span className="text-[0.85rem] font-medium text-accent whitespace-nowrap">
-                    {date}
-                  </span>
+                  </h3>
+                  <div className="text-[0.875rem] text-text-secondary">
+                    {company}
+                  </div>
                 </div>
-                <div className="text-[0.95rem] text-text-muted mb-4">
-                  {company}
+                <div className="text-[0.875rem] text-text-secondary">
+                  {date}
                 </div>
-                <ul className="list-none">
+              </div>
+              
+              {points.length > 0 && (
+                <ul className="list-none flex flex-col gap-2 mt-4">
                   {points.map((point, j) => (
                     <li
                       key={j}
-                      className="relative pl-5 mb-2.5 text-[0.93rem] text-text-secondary leading-[1.7] before:content-['▹'] before:absolute before:left-0 before:text-accent before:text-[0.9rem]"
+                      className="relative pl-4 text-[0.875rem] text-text-primary leading-[1.5] before:content-['—'] before:absolute before:left-0 before:text-text-muted"
                     >
                       {point}
                     </li>
                   ))}
                 </ul>
-              </div>
+              )}
             </div>
           ))}
         </div>

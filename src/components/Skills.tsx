@@ -2,41 +2,59 @@ import { useScrollReveal } from "../hooks/useScrollReveal";
 
 const CATEGORIES = [
   {
+    icon: "fa-solid fa-code",
+    title: "Programming Languages",
+    tags: [
+      "Python",
+      "PowerShell",
+    ],
+  },
+  {
+    icon: "fa-solid fa-server",
+    title: "Backend Development",
+    tags: [
+      "FastAPI",
+      "Django",
+      "REST APIs",
+      "OpenAPI",
+      "SQLAlchemy",
+      "MongoDB",
+      "RDBMS",
+    ],
+  },
+  {
     icon: "fa-solid fa-cloud",
-    title: "Cloud Infrastructure",
+    title: "Cloud & Infrastructure",
     tags: [
       "AWS",
       "Azure AD",
       "Exchange Online",
-      "Terraform",
-      "Kubernetes",
       "Docker",
+      "Kubernetes",
       "Helm",
+      "Terraform",
     ],
   },
   {
     icon: "fa-solid fa-gears",
     title: "Automation & Orchestration",
     tags: [
-      "PowerShell",
-      "Prefect",
       "Apache Airflow",
+      "Prefect",
       "ServiceNow",
       "Event-Driven Systems",
     ],
   },
   {
     icon: "fa-solid fa-brain",
-    title: "AI Engineering",
+    title: "AI & Machine Learning",
     tags: [
-      "Python",
       "LangChain",
-      "HuggingFace",
-      "MLflow",
+      "Hugging Face",
       "CrewAI",
+      "MLflow",
       "ChromaDB",
       "LLM Pipelines",
-      "FastAPI",
     ],
   },
   {
@@ -45,22 +63,9 @@ const CATEGORIES = [
     tags: ["Grafana", "Prometheus"],
   },
   {
-    icon: "fa-solid fa-server",
-    title: "Backend Development",
-    tags: [
-      "Django",
-      "FastAPI",
-      "MongoDB",
-      "SQLAlchemy",
-      "RDBMS",
-      "OpenAPI",
-      "REST APIs",
-    ],
-  },
-  {
     icon: "fa-solid fa-toolbox",
-    title: "Other Tools",
-    tags: ["Git", "Playwright", "LMStudio", "Docker Compose", "Keycloak"],
+    title: "Developer Tools",
+    tags: ["Git", "Docker Compose", "Playwright", "Keycloak", "LM Studio"],
   },
 ];
 
@@ -68,34 +73,31 @@ export default function Skills() {
   const ref = useScrollReveal<HTMLElement>();
 
   return (
-    <section id="skills" className="py-[100px] bg-bg-secondary" ref={ref}>
-      <div className="max-w-[1100px] mx-auto px-6">
-        <div className="reveal">
-          <span className="inline-flex items-center gap-2 font-body text-[0.8rem] font-semibold tracking-[3px] uppercase text-accent mb-3 before:inline-block before:w-6 before:h-0.5 before:gradient-accent before:rounded-sm">
-            Expertise
-          </span>
-          <h2 className="font-heading text-[clamp(2rem,4vw,2.8rem)] font-bold text-text-primary mb-12">
+    <section id="skills" className="py-24 bg-bg-primary" ref={ref}>
+      <div className="max-w-[1056px] mx-auto px-4">
+        <div className="reveal mb-12">
+          <h2 className="font-heading text-[2rem] font-light text-text-primary">
             Skills &amp; Technologies
           </h2>
         </div>
-        <div className="grid grid-cols-[repeat(auto-fill,minmax(320px,1fr))] gap-6 max-[480px]:grid-cols-1">
-          {CATEGORIES.map(({ icon, title, tags }, i) => (
+        
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-[1px] bg-border-subtle p-[1px]">
+          {CATEGORIES.map(({ icon, title, tags }) => (
             <div
               key={title}
-              className="reveal bg-bg-card border border-border-subtle rounded-[var(--radius-card)] px-7 py-8 hover:bg-bg-card-hover hover:border-border-accent hover:-translate-y-1 transition-all duration-300"
-              style={{ transitionDelay: `${i * 100}ms` }}
+              className="reveal bg-bg-secondary p-6 hover:bg-bg-card transition-colors duration-150"
             >
-              <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-[rgba(0,212,255,0.08)] mb-[18px] text-[1.3rem]">
-                <i className={icon} />
+              <div className="flex items-center gap-3 mb-4 text-text-primary">
+                <i className={`${icon} text-[1.2rem] text-accent`} />
+                <h3 className="font-heading text-[1rem] font-medium m-0">
+                  {title}
+                </h3>
               </div>
-              <h3 className="font-heading text-[1.1rem] font-semibold mb-4 text-text-primary">
-                {title}
-              </h3>
               <div className="flex flex-wrap gap-2">
                 {tags.map((tag) => (
                   <span
                     key={tag}
-                    className="inline-block px-3.5 py-1.5 text-[0.8rem] font-medium text-text-secondary bg-[rgba(255,255,255,0.04)] border border-border-subtle rounded-full hover:bg-[rgba(0,212,255,0.1)] hover:text-accent hover:border-border-accent transition-all duration-300"
+                    className="inline-block px-3 py-1 text-[0.75rem] text-text-primary bg-bg-card border border-border-subtle"
                   >
                     {tag}
                   </span>

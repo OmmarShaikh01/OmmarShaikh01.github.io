@@ -1,52 +1,40 @@
 import { useScrollReveal } from "../hooks/useScrollReveal";
 
 const STATS = [
-  { number: "4+", label: "Years Experience" },
-  { number: "85%", label: "Latency Reduction" },
-  { number: "48K+", label: "AD Objects Managed" },
-  { number: "99.9%", label: "System Uptime" },
+  { label: "Infrastructure Scaling" },
+  { label: "Performance Optimization" },
+  { label: "Cloud Governance" },
+  { label: "DevSecOps Automation" },
 ];
 
 export default function About() {
   const ref = useScrollReveal<HTMLElement>();
 
   return (
-    <section id="about" className="py-[100px]" ref={ref}>
-      <div className="max-w-[1100px] mx-auto px-6">
-        <div className="reveal">
-          <span className="inline-flex items-center gap-2 font-body text-[0.8rem] font-semibold tracking-[3px] uppercase text-accent mb-3 before:inline-block before:w-6 before:h-0.5 before:gradient-accent before:rounded-sm">
+    <section id="about" className="py-24 bg-bg-secondary" ref={ref}>
+      <div className="max-w-[1056px] mx-auto px-4">
+        <div className="reveal mb-12">
+          <h2 className="font-heading text-[2rem] font-light text-text-primary">
             About Me
-          </span>
-          <h2 className="font-heading text-[clamp(2rem,4vw,2.8rem)] font-bold text-text-primary mb-12">
-            Who I Am
           </h2>
         </div>
-        <div className="grid grid-cols-2 gap-12 items-start max-[900px]:grid-cols-1">
+        <div className="grid grid-cols-2 gap-8 items-start max-[900px]:grid-cols-1">
           <div className="reveal">
-            <p className="text-text-secondary text-[1.02rem] leading-[1.9] mb-5">
-              I'm a Senior AI &amp; Automation Engineer based in Mumbai, India,
-              working across remote and EST timezone teams. I specialize in
-              designing enterprise-level automation frameworks, Agentic AI
-              pipelines, and fault-tolerant cloud infrastructure.
+            <p className="text-text-primary text-[1rem] leading-[1.6] mb-6 font-normal max-w-[480px]">
+              I am a Software Engineer based in Mumbai, IN, working across remote teams. I specialize in designing automation frameworks, cloud governance platforms, and reliable infrastructure.
             </p>
-            <p className="text-text-secondary text-[1.02rem] leading-[1.9] mb-5">
-              With a track record of reducing operational latency by 85% and
-              maintaining 99.9% uptime for critical systems, I bring deep
-              expertise in Python, PowerShell, AWS, and modern MLOps tooling to
-              every project. My work supports 48,000+ managed objects and 5,000+
-              users at enterprise scale.
+            <p className="text-text-primary text-[1rem] leading-[1.6] font-normal max-w-[480px]">
+              Currently building Enforcer-CCA, I focus on delivering continuous compliance and remediation workflows across AWS and Kubernetes. I bring expertise in DevSecOps automation, backend architecture, and scalable system design to every project.
             </p>
           </div>
-          <div className="grid grid-cols-2 gap-5 reveal max-[480px]:grid-cols-1">
-            {STATS.map(({ number, label }) => (
+          <div className="grid grid-cols-2 gap-[1px] reveal max-[480px]:grid-cols-1 bg-border-subtle p-[1px]">
+            {STATS.map(({ label }, i) => (
               <div
-                key={label}
-                className="bg-bg-card border border-border-subtle rounded-[var(--radius-card)] px-6 py-7 text-center hover:bg-bg-card-hover hover:border-border-accent hover:-translate-y-1 transition-all duration-300"
+                key={i}
+                className="bg-bg-secondary p-6 flex flex-col justify-between h-[120px] hover:bg-bg-card transition-colors duration-150"
               >
-                <div className="font-heading text-[2.2rem] font-bold gradient-text">
-                  {number}
-                </div>
-                <div className="text-[0.85rem] text-text-muted mt-1">
+                <i className="fa-solid fa-check text-accent text-[1rem]"></i>
+                <div className="text-[0.875rem] text-text-primary font-medium mt-4">
                   {label}
                 </div>
               </div>
