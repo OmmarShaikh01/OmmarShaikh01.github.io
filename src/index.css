@@ -1,48 +1,44 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
 /* ============================================================
-   Custom Theme — IBM Carbon Gray 100 Theme
+   Theme — "Noir Burgundy" (modern, warm, dark)
    ============================================================ */
 @theme {
-  /* Backgrounds */
-  --color-bg-primary: #161616; /* background */
-  --color-bg-secondary: #262626; /* layer-01 */
-  --color-bg-card: #393939; /* layer-02 */
-  --color-bg-card-hover: #4d4d4d; /* layer-hover-02 */
+  /* Backgrounds — deep aubergine → wine */
+  --color-bg-primary: #170910;
+  --color-bg-secondary: #210c15;
+  --color-bg-card: #2c111c;
+  --color-bg-card-hover: #391825;
 
-  /* Accent */
-  --color-accent: #0f62fe; /* button-primary */
-  --color-accent-hover: #0353e9; /* button-primary-hover */
+  /* Accent — vivid rose that pops on wine */
+  --color-accent: #f43f5e;
+  --color-accent-hover: #fb7185;
 
-  /* Text */
-  --color-text-primary: #f4f4f4; /* text-primary */
-  --color-text-secondary: #c6c6c6; /* text-secondary */
-  --color-text-muted: #8d8d8d; /* text-helper */
+  /* Text — warm off-white → mauve */
+  --color-text-primary: #f8edf0;
+  --color-text-secondary: #cbb5be;
+  --color-text-muted: #997e89;
   --color-text-inverse: #ffffff;
 
-  /* Borders */
-  --color-border-subtle: #393939; /* border-subtle-01 */
-  --color-border-strong: #525252; /* border-strong-01 */
-  --color-border-accent: #0f62fe; /* focus */
+  /* Status */
+  --color-status-online: #34d399;
 
-  /* Typography */
-  --font-heading: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --font-body: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  /* Borders — warm hairlines */
+  --color-border-subtle: rgba(248, 237, 240, 0.1);
+  --color-border-strong: rgba(248, 237, 240, 0.22);
+  --color-border-accent: #f43f5e;
 
-  /* Radius (Carbon is sharp) */
-  --radius-card: 0px;
-  --radius-sm: 0px;
+  /* Typography — modern geometric display + neutral body */
+  --font-heading: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 
-  /* Shadows (Carbon avoids shadows, relying on borders and contrast) */
-  --shadow-card: none;
-  --shadow-card-hover: none;
-  --shadow-accent: none;
-  --shadow-accent-hover: none;
+  /* Radius — soft, modern */
+  --radius-card: 18px;
+  --radius-sm: 12px;
 }
 
 /* ============================================================
-   Global Styles
+   Base
    ============================================================ */
 html {
   scroll-behavior: smooth;
@@ -54,14 +50,179 @@ body {
   font-family: var(--font-body);
   background: var(--color-bg-primary);
   color: var(--color-text-primary);
-  line-height: 1.5;
+  line-height: 1.6;
   overflow-x: hidden;
-  letter-spacing: 0.16px;
+  letter-spacing: 0.01em;
 }
 
-* {
-  border-radius: 0 !important;
-  box-shadow: none !important;
+/* Anchored sections clear the fixed navbar */
+[id] {
+  scroll-margin-top: 80px;
+}
+
+/* ============================================================
+   Accessibility — focus + skip link
+   ============================================================ */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 2000;
+  padding: 8px 16px;
+  border-radius: 9999px;
+  background: var(--color-accent);
+  color: #fff;
+  font-size: 0.875rem;
+  transform: translateY(-200%);
+  transition: transform 0.15s ease;
+}
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+/* ============================================================
+   Reusable components (keep markup lean, theme centralised)
+   ============================================================ */
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--color-accent);
+  margin-bottom: 0.85rem;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.9rem, 3.4vw, 2.5rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--color-text-primary);
+}
+
+.card {
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-card);
+  transition:
+    background 0.22s ease,
+    border-color 0.22s ease,
+    transform 0.22s ease;
+}
+.card--hover:hover {
+  background: var(--color-bg-card);
+  border-color: var(--color-border-strong);
+  transform: translateY(-3px);
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.32rem 0.75rem;
+  font-size: 0.75rem;
+  border-radius: 9999px;
+  border: 1px solid var(--color-border-subtle);
+  background: color-mix(in srgb, var(--color-text-primary) 4%, transparent);
+  color: var(--color-text-secondary);
+  transition: all 0.18s ease;
+}
+.tag--accent {
+  color: #fff;
+  background: color-mix(in srgb, var(--color-accent) 18%, transparent);
+  border-color: color-mix(in srgb, var(--color-accent) 40%, transparent);
+  font-weight: 500;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.8rem 1.5rem;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-radius: 9999px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.btn--primary {
+  background: var(--color-accent);
+  color: #fff;
+  box-shadow: 0 12px 34px -12px color-mix(in srgb, var(--color-accent) 75%, transparent);
+}
+.btn--primary:hover {
+  background: var(--color-accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px -12px color-mix(in srgb, var(--color-accent) 85%, transparent);
+}
+.btn--ghost {
+  background: color-mix(in srgb, var(--color-text-primary) 5%, transparent);
+  color: var(--color-text-primary);
+  border-color: var(--color-border-subtle);
+}
+.btn--ghost:hover {
+  background: color-mix(in srgb, var(--color-text-primary) 9%, transparent);
+  border-color: var(--color-border-strong);
+  transform: translateY(-2px);
+}
+
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-sm);
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-subtle);
+  color: var(--color-text-primary);
+  transition: all 0.2s ease;
+}
+.icon-btn:hover {
+  color: var(--color-accent);
+  background: var(--color-bg-card);
+  border-color: var(--color-border-strong);
+  transform: translateY(-2px);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: 9999px;
+  border: 1px solid var(--color-border-subtle);
+  background: color-mix(in srgb, var(--color-text-primary) 4%, transparent);
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+}
+
+/* ============================================================
+   Hero glow
+   ============================================================ */
+#hero {
+  position: relative;
+  overflow: hidden;
+}
+#hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(680px 460px at 12% -5%, color-mix(in srgb, var(--color-accent) 26%, transparent) 0%, transparent 68%),
+    radial-gradient(560px 420px at 92% 8%, color-mix(in srgb, #7a1f3d 40%, transparent) 0%, transparent 66%);
 }
 
 /* ============================================================
@@ -69,33 +230,90 @@ body {
    ============================================================ */
 .reveal {
   opacity: 0;
-  transition: opacity 0.4s cubic-bezier(0.2, 0, 0.38, 0.9);
+  transform: translateY(16px);
+  transition:
+    opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .reveal.visible {
   opacity: 1;
+  transform: none;
 }
 
 /* ============================================================
-   Accent utilities
+   Keyframes
    ============================================================ */
-.bg-accent-solid {
-  background: var(--color-accent);
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+.animate-blink {
+  animation: blink 1.05s step-end infinite;
 }
 
-.text-accent-solid {
-  color: var(--color-accent);
+@keyframes pulseRing {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.7;
+  }
+  70% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.status-dot {
+  border-radius: 9999px;
+}
+.status-dot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: var(--color-status-online);
+  animation: pulseRing 2.4s ease-out infinite;
 }
 
-/* Scrollbar */
+/* ============================================================
+   Scrollbar
+   ============================================================ */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 9px;
 }
 ::-webkit-scrollbar-track {
   background: var(--color-bg-primary);
 }
 ::-webkit-scrollbar-thumb {
   background: var(--color-border-strong);
+  border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-text-muted);
+  background: var(--color-accent);
+}
+
+/* ============================================================
+   Reduced motion
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
 }

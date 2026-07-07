@@ -1,77 +1,78 @@
 import { useScrollReveal } from "../hooks/useScrollReveal";
-
-const PROJECTS = [
-  {
-    title: "Enforcer-CCA",
-    type: "Cloud Governance Platform",
-    points: [
-      "Developed Python services to evaluate infrastructure state, detect configuration drift, and orchestrate policy-driven remediation.",
-      "Implemented Kubernetes controllers and GitOps-based automation pipelines to align with compliance standards.",
-    ],
-    link: "https://www.enforcer-cca.com/",
-  },
-  {
-    title: "Enterprise AI-Driven User Lifecycle Framework",
-    type: "Financial Institution Project",
-    points: [
-      "Designed a modular architecture enabling seamless scalability for large-scale AD environments.",
-      "Integrated Prefect orchestration into data pipelines for reliable identity updates and robust error recovery.",
-      "Implemented a rule-driven framework featuring integrated audit logging and role-based access management.",
-      "Authored standardized operational procedures for maintenance, disaster recovery, and infrastructure rollouts.",
-    ],
-  },
-];
+import { PROJECTS } from "../data/profile";
 
 export default function Projects() {
   const ref = useScrollReveal<HTMLElement>();
 
   return (
     <section id="projects" className="py-24 bg-bg-secondary" ref={ref}>
-      <div className="max-w-[1056px] mx-auto px-4">
+      <div className="max-w-[1120px] mx-auto px-6">
         <div className="reveal mb-12">
-          <h2 className="font-heading text-[2rem] font-light text-text-primary">
-            Featured Projects
-          </h2>
+          <span className="eyebrow">03 — Projects</span>
+          <h2 className="section-title">Featured Projects</h2>
         </div>
-        
-        <div className="grid grid-cols-2 gap-[1px] bg-border-subtle p-[1px] max-[900px]:grid-cols-1">
+
+        <div className="grid grid-cols-2 gap-4 max-[900px]:grid-cols-1">
           {PROJECTS.map((project, i) => (
-            <div 
+            <div
               key={i}
-              className="reveal bg-bg-primary p-6 relative hover:bg-bg-card transition-colors duration-150 flex flex-col justify-between"
+              className="reveal card card--hover p-6 sm:p-8 flex flex-col"
             >
-              <div>
-                <div className="text-[0.75rem] text-text-muted uppercase tracking-[0.32px] mb-2">
-                  {project.type}
+              <div className="flex-1">
+                <div className="flex items-center justify-between gap-3 mb-3">
+                  <div className="text-[0.75rem] text-text-muted uppercase tracking-[0.12em]">
+                    {project.type}
+                  </div>
+                  {project.link && (
+                    <i className="fa-solid fa-arrow-up-right-from-square text-text-muted text-[0.75rem]" />
+                  )}
                 </div>
-                <h3 className="font-heading text-[1.25rem] font-normal mb-4">
+                <h3 className="font-heading text-[1.4rem] font-semibold mb-4 tracking-tight">
                   {project.link ? (
-                    <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-text-primary hover:text-accent no-underline hover:underline decoration-1 underline-offset-2 transition-colors">
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-text-primary hover:text-accent no-underline transition-colors"
+                    >
                       {project.title}
                     </a>
                   ) : (
                     <span className="text-text-primary">{project.title}</span>
                   )}
                 </h3>
-                <ul className="list-none flex flex-col gap-2 mb-6">
+                <ul className="list-none flex flex-col gap-2.5 mb-6">
                   {project.points.map((point, j) => (
                     <li
                       key={j}
-                      className="relative pl-4 text-[0.875rem] text-text-primary leading-[1.5] before:content-['—'] before:absolute before:left-0 before:text-text-muted"
+                      className="relative pl-5 text-[0.9375rem] text-text-secondary leading-[1.65] before:content-['▹'] before:absolute before:left-0 before:text-accent"
                     >
                       {point}
                     </li>
                   ))}
                 </ul>
               </div>
-              
-              {project.link && (
-                <div className="mt-auto">
-                  <a href={project.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-[0.875rem] text-accent hover:text-accent-hover no-underline">
-                    View Project <i className="fa-solid fa-arrow-right ml-2 text-[0.75rem]" />
-                  </a>
+
+              <div className="mt-auto">
+                <div className="flex flex-wrap gap-2 mb-5">
+                  {project.stack.map((tech) => (
+                    <span key={tech} className="tag">
+                      {tech}
+                    </span>
+                  ))}
                 </div>
-              )}
+                {project.link && (
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center text-[0.875rem] font-medium text-accent hover:text-accent-hover no-underline"
+                  >
+                    View Project{" "}
+                    <i className="fa-solid fa-arrow-right ml-2 text-[0.75rem]" />
+                  </a>
+                )}
+              </div>
             </div>
           ))}
         </div>

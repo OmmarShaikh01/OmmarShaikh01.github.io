@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ommar Shaikh — Résumé</title>
+    <meta name="description" content="Résumé of Ommar Shaikh — Founder & Principal Software Engineer." />
+    <style>
+      :root {
+        --ink: #1a1a1a;
+        --muted: #555;
+        --rule: #cfcfcf;
+        --link: #b11e42;
+      }
+      * { box-sizing: border-box; }
+      html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      body {
+        margin: 0;
+        background: #e9e9ec;
+        color: var(--ink);
+        font-family: Georgia, "Times New Roman", serif;
+        line-height: 1.4;
+      }
+      .page {
+        max-width: 8.5in;
+        margin: 24px auto;
+        background: #fff;
+        padding: 0.7in 0.85in 0.9in;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
+      }
+      header { text-align: center; margin-bottom: 14px; }
+      h1 {
+        font-size: 30px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin: 0 0 6px;
+        font-weight: 700;
+      }
+      .contact { font-size: 12.5px; color: var(--muted); }
+      .contact a { color: var(--link); text-decoration: none; }
+      .contact span { white-space: nowrap; }
+      .contact .sep { color: var(--rule); margin: 0 6px; }
+      h2 {
+        font-size: 15px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border-bottom: 1.5px solid var(--ink);
+        padding-bottom: 2px;
+        margin: 18px 0 8px;
+      }
+      .overview { text-align: justify; font-size: 13px; margin: 4px 0 0; }
+      .role { margin-bottom: 10px; }
+      .role-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 12px;
+      }
+      .role-title { font-weight: 700; font-size: 14px; }
+      .role-date { font-size: 12px; color: var(--muted); white-space: nowrap; }
+      .role-org { font-size: 12.5px; font-style: italic; color: var(--muted); margin-bottom: 3px; }
+      .role-org a { color: var(--link); text-decoration: none; }
+      ul { margin: 4px 0 0; padding-left: 18px; }
+      li { font-size: 12.5px; margin-bottom: 2px; }
+      table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+      td { padding: 3px 0; vertical-align: top; }
+      td.k { font-weight: 700; white-space: nowrap; padding-right: 12px; width: 210px; }
+      .edu-row, .cert-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        font-size: 12.5px;
+        padding: 2px 0;
+      }
+      .cert-row { display: block; margin-bottom: 6px; }
+      .cert-name { font-weight: 700; }
+      .cert-detail { color: var(--muted); }
+
+      .toolbar {
+        position: fixed;
+        top: 16px;
+        right: 16px;
+        display: flex;
+        gap: 8px;
+      }
+      .toolbar a, .toolbar button {
+        font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
+        font-size: 13px;
+        padding: 9px 16px;
+        border: none;
+        cursor: pointer;
+        text-decoration: none;
+        color: #fff;
+        background: var(--link);
+      }
+      .toolbar a { background: #393939; }
+
+      @media print {
+        body { background: #fff; }
+        .page { margin: 0; max-width: none; box-shadow: none; padding: 0.4in 0.5in; }
+        .toolbar { display: none; }
+        a { color: var(--ink); }
+      }
+      @page { margin: 0.5in; }
+    </style>
+  </head>
+  <body>
+    <div class="toolbar">
+      <a href="/">&larr; Back to site</a>
+      <button onclick="window.print()">Print / Save as PDF</button>
+    </div>
+
+    <main class="page">
+      <header>
+        <h1>Ommar Shaikh</h1>
+        <div class="contact">
+          <span>+91 932-487-1009</span><span class="sep">•</span>
+          <span>Mumbai, IN (Remote / EST Timezone)</span>
+        </div>
+        <div class="contact" style="margin-top: 3px">
+          <a href="mailto:ommarshaikh20@gmail.com">ommarshaikh20@gmail.com</a><span class="sep">•</span>
+          <a href="https://www.linkedin.com/in/ommar-shaikh-02b3a1207/">LinkedIn</a><span class="sep">•</span>
+          <a href="https://ommarshaikh01.github.io/">Website</a><span class="sep">•</span>
+          <a href="https://github.com/OmmarShaikh01">GitHub</a>
+        </div>
+      </header>
+
+      <section>
+        <h2>Overview</h2>
+        <p class="overview">
+          Founder &amp; Principal Software Engineer building Enforcer-CCA, an autonomous cloud
+          governance platform delivering continuous compliance (SOC 2, ISO 27001) and self-healing
+          remediation across AWS and Kubernetes. 4+ years of experience building scalable,
+          production-grade MLOps and cloud infrastructure, including high-availability identity
+          automation supporting 48,000+ objects. Expert in reducing operational latency by 85% and
+          delivering enterprise-grade DevSecOps automation.
+        </p>
+      </section>
+
+      <section>
+        <h2>Skills</h2>
+        <table>
+          <tr><td class="k">Programming Languages</td><td>Python, PowerShell</td></tr>
+          <tr><td class="k">Backend Development</td><td>FastAPI, Django, REST APIs, OpenAPI, SQLAlchemy, MongoDB, RDBMS</td></tr>
+          <tr><td class="k">Cloud &amp; Infrastructure</td><td>AWS, Azure AD, Exchange Online, Docker, Kubernetes, Helm, Terraform</td></tr>
+          <tr><td class="k">Automation &amp; Orchestration</td><td>Apache Airflow, Prefect, ServiceNow, Event-Driven Systems</td></tr>
+          <tr><td class="k">AI &amp; Machine Learning</td><td>LangChain, Hugging Face, CrewAI, MLflow, ChromaDB (Vector DB), LLM Pipelines</td></tr>
+          <tr><td class="k">Monitoring &amp; Observability</td><td>Grafana, Prometheus</td></tr>
+          <tr><td class="k">Developer Tools</td><td>Git, Docker Compose, Playwright, Keycloak, LM Studio</td></tr>
+        </table>
+      </section>
+
+      <section>
+        <h2>Experience</h2>
+
+        <div class="role">
+          <div class="role-head">
+            <span class="role-title">Founder &amp; Principal Software Engineer</span>
+            <span class="role-date">Feb 2026 — Present</span>
+          </div>
+          <div class="role-org"><a href="https://www.enforcer-cca.com/">Enforcer-CCA</a>, Mumbai, IN (Remote)</div>
+          <ul>
+            <li>Founded and built Enforcer-CCA, an autonomous cloud governance platform delivering continuous compliance and self-healing remediation across AWS and Kubernetes.</li>
+            <li>Designed enterprise-grade APIs, RBAC, and audit logging supporting SOC 2 and ISO 27001 compliance frameworks.</li>
+            <li>Built native integrations with Datadog, GitHub, Slack, PagerDuty, Terraform, Jira, Okta, and Splunk, driving early design-partner adoption during private beta.</li>
+            <li>Owned the complete software lifecycle including architecture, cloud infrastructure, deployment automation, and production operations.</li>
+          </ul>
+        </div>
+
+        <div class="role">
+          <div class="role-head">
+            <span class="role-title">Senior Automation &amp; AI Engineer</span>
+            <span class="role-date">May 2023 — Feb 2026</span>
+          </div>
+          <div class="role-org">BAARTechnology, Mumbai, IN (Remote)</div>
+          <ul>
+            <li>Architected an Enterprise ULM system, reducing manual ULM latency by 85% through automated AD and Exchange workflows.</li>
+            <li>Engineered fault-tolerant MLOps and automation pipelines using Prefect and Docker, maintaining 99.9% uptime.</li>
+            <li>Developed an Intermediate Domain Controller (IDC) as a validation layer, enabling zero-downtime rollbacks and version-controlled infrastructure.</li>
+            <li>Optimized security compliance by integrating RBAC and JIT provisioning, ensuring 100% alignment with audit requirements.</li>
+            <li>Streamlined ITSM workflows by integrating ServiceNow APIs with PowerShell, cutting ticket resolution time from days to minutes.</li>
+          </ul>
+        </div>
+
+        <div class="role">
+          <div class="role-head">
+            <span class="role-title">Backend Developer</span>
+            <span class="role-date">Jan 2023 — May 2023</span>
+          </div>
+          <div class="role-org">PortfolioBuddy, Mumbai, IN</div>
+          <ul>
+            <li>Developed a robust backend architecture using Django, enhancing platform flexibility and scalability.</li>
+            <li>Optimized data storage and retrieval processes with MongoDB, ensuring high performance and reliability.</li>
+            <li>Integrated Keycloak for secure authentication and authorization, safeguarding user data.</li>
+            <li>Implemented Docker and Docker Compose for seamless deployment across various environments.</li>
+            <li>Established real-time monitoring and alerting with Grafana and Prometheus, ensuring minimal downtime.</li>
+          </ul>
+        </div>
+
+        <div class="role">
+          <div class="role-head">
+            <span class="role-title">Backend Developer</span>
+            <span class="role-date">Oct 2021 — Dec 2022</span>
+          </div>
+          <div class="role-org">Freelance, Mumbai, IN</div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Projects</h2>
+        <div class="role">
+          <div class="role-title"><a href="https://www.enforcer-cca.com/" style="color: var(--link); text-decoration: none">Enforcer-CCA</a> — Founder-Led Cloud Governance Platform</div>
+          <ul>
+            <li>Developed distributed Python services to evaluate infrastructure state, detect configuration drift, and orchestrate policy-driven remediation workflows.</li>
+            <li>Implemented Kubernetes controllers, IaC validation, and GitOps-based automation pipelines enforcing SOC 2 and ISO 27001 compliance.</li>
+          </ul>
+        </div>
+        <div class="role">
+          <div class="role-title">Enterprise AI-Driven User Lifecycle Framework — Confidential Financial Institution</div>
+          <ul>
+            <li>Designed a modular, high-availability ULM architecture enabling seamless multi-region scalability for 48,000+ AD objects and 5,000+ users.</li>
+            <li>Integrated Prefect orchestration into data pipelines for real-time identity updates, reducing manual intervention and ensuring robust error recovery.</li>
+            <li>Implemented a rule-driven framework with integrated audit logging, compliance enforcement, and role-based access management.</li>
+            <li>Authored standardized SOPs for maintenance, disaster recovery, and weekly infrastructure rollouts.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2>Education</h2>
+        <div class="edu-row"><span><strong>Master of Science (Spl. Data Science)</strong></span><span class="role-date">June 2022 — June 2024</span></div>
+        <div class="edu-row"><span><strong>Bachelor of Science</strong></span><span class="role-date">May 2019 — June 2022</span></div>
+      </section>
+    </main>
+  </body>
+</html>
